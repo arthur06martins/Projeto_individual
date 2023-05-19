@@ -19,37 +19,37 @@
            
                 
                 <div class="infield">
-                    <input type="text" placeholder="Nome" />
+                    <input id="inp_nome" type="text" placeholder="Nome" />
                     <label></label>
                 </div>
                 <div class="infield">
-                    <input type="text" placeholder="Apelido">
+                    <input id="inp_apelido" type="text" placeholder="Apelido">
                     <label></label>
                 </div>
                 <div class="infield">
-                    <input type="email" placeholder="Email" name="email"/>
+                    <input id="inp_email" type="email" placeholder="Email" name="email"/>
                     <label></label>
                 </div>
                 <div class="infield">
-                    <input type="password" placeholder="Senha" />
+                    <input id="inp_senha" type="password" placeholder="Senha" />
                     <label></label>
                 </div>
-                <button>Cadastre-se</button>
+                <button onclick="cadastrar()">Cadastre-se</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
             <form action="#">
                 <h1>Login</h1>  
                 <div class="infield">
-                    <input type="email" placeholder="Email" name="email"/>
+                    <input id="inp_login_email" type="email" placeholder="Email" name="email"/>
                     <label></label>
                 </div>
                 <div class="infield">
-                    <input type="password" placeholder="Senha" />
+                    <input id="inp_login_senha" type="password" placeholder="Senha" />
                     <label></label>
                 </div>
                
-                <button>Entrar</button>
+                <button onclick="entrar()">Entrar</button>
             </form>
         </div>
         <div class="overlay-container" id="overlayCon">
@@ -81,9 +81,7 @@
                 overlayBtn.classList.add('btnScaled');
             })
         });
-        function cadastrar() {
-    aguardar();
-
+        function cadastrar() {  
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nome  =   inp_nome.value;
@@ -92,15 +90,13 @@
     var senha = inp_senha.value;
 
     if (nome == "" || apelido == "" || email == "" || senha== "") {
-        cardErro.style.display = "block"
+       
         mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
-        finalizarAguardar();
+       
         return false;
     }
-    else {
-        setInterval(sumirMensagem, 5000)
-    }
+   
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -129,23 +125,75 @@
                 window.location = "./index/pginicial.html";
             }, "2000")
 
-            limparFormulario();
-            finalizarAguardar();
+            
+            
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
         }
     }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
+        
     });
 
     return false;
 }
 
-function sumirMensagem() {
-    cardErro.style.display = "none"
+
+
+function entrar() {
+ 
+    var emailVar = inp_login_email.value;
+    var senhaVar = inp_login_senha.value;
+
+    if (emailVar == "" || senhaVar == "") {
+        cardErro.style.display = "block"
+        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+     
+        return false;
+    }
+    
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!")
+        if (resposta.ok) {
+            console.log(resposta);
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+               
+              
+              
+              
+            });
+        } else {
+            console.log("Houve um erro ao tentar realizar o login!");
+            resposta.text().then(texto => {
+                console.error(texto);
+            
+            });
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+    })
+    return false;
 }
-    </script> 
+
+
+
+
+</script> 
     
 
 </body>

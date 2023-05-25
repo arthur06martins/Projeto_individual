@@ -73,18 +73,28 @@ body
 }
 .img-logo img
 {
+    color: rgba(76, 117, 133, 0.103);
     position: absolute;
     width: 100%;
     height: 100%;
 }
 .login
 {
-    width: 8%;
+    height: 90%;
+    width: 6%;
     position: relative;
     left: 18%;
-    
+    top: 5%;
     border-radius: 100%;
     padding: 0;
+    
+}
+.img_user_logo
+{
+    border-radius: 100%;
+    background: rgba(76, 117, 133, 0.226);
+    position: absolute;
+    
     
 }
 .login img
@@ -101,35 +111,70 @@ body
     justify-content: center;
     position:absolute;
     display: flex;
-    border:2px solid;
-    height:40vw;
+    height:30vw;
     width: 80%;
     top: 15%;
-    left: 20vh;
+    left: 18vh;
 
 }
 .conteiner-img-user
 {
+    background-color: #4d50615d;
     border: solid;
+    border-radius: 20%;
     display: flex;
-    justify-content:space-around;
+    justify-content:center;
     align-items: center;
+    flex-direction: column;
     width: 30%;
-
-    
-}
-.img-user img
-{
     height: 100%;
+ 
+}
+.t
+{
 
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 40%;
 }
 .img-user
 {
     
     border-radius: 100%;
-    height: 50%;
-    width: 40%;
-    border: solid;
+    height: 70%;
+    width: 65%;
     justify-content: center;
+    align-items: center;
 }
+.select-img
+{
+border-radius: 60%;
+position: absolute;
+top: 88%;
+height: 8%;
+}
+
+
+.select-img select
+{
+    
+    text-align: center;
+    font-family: "lilita";
+    font-size: 1.5vw;
+    width: 15vw;
+    background: #4d5061;
+    
+    
+    
+}
+
+.select-imgs
+{
+    
+    position: relative;
+    height: 100%;
+   
+}
+
 

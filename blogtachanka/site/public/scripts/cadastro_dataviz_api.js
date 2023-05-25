@@ -8,6 +8,8 @@ function cadastrar() {
     var email = inp_email.value;
     var senha = inp_senha.value;
 
+    nome_user.innerHTML = `${nome}`
+
     if (nome == "" || apelido == "" || email == "" || senha== "") {
         cardErro.style.display = "block"
         mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";

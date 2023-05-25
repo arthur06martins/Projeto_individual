@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    informe o nome da prova
+    <input  id="inp_prova"><br>
+    informe o tempo de realização da prova 
+    <input type="text" name="" id="inp_tempo"><br>
+    <button onclick="registrar()">registrar</button>
+    <div id="resultado"></div>
+</body>
+</html>
+<script>
+    var prova = []
+
+    function registrar()
+    {
+        var nome_prova = inp_prova.value
+        var tempo = Number(inp_tempo.value)
+
+        prova.push(nome_prova)
+
+        for(var i =0; i < prova.length;i++)
+        {
+            var registros =  prova[i]
+
+            
+        }
+    }
+
+</script>

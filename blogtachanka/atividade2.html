@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div id="analisar">
+            <h1>analis de performace de alunos -regitros</h1>
+
+           entre com o nome do aluno<input type="text" id="inp_nomeAluno"> <br>
+           entre com a nota do aluno <input type="text" name="" id="inp_nota"><br>
+
+           <button onclick="registrar()">registrar</button>
+           <button onclick="analisar()">analisar</button>
+
+           <div id="exibir"></div>
+        </div>
+</body>
+</html>
+
+<script>
+    var alunos = []
+    var notas = []
+
+    function registrar()
+    {
+        
+        
+        var aluno = inp_nomeAluno.value
+        var nota = Number(inp_nota.value)
+        exibir.innerHTML=""
+        if (aluno != "" && nota >= 0 && nota <= 10)
+        {
+            alunos.push(aluno)
+            notas.push(nota)
+        }
+
+        for(var i = alunos.length; i > 0; i--)
+        {
+            var guardar = alunos[i-1]
+
+            exibir.innerHTML += `${i}, ${guardar}<br>`
+        }
+    }
+</script>

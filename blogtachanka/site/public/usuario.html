@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="./style/styleUsuario.css">
+    <script src="./scripts/pgusuario.js"></script>
+    <script src="./scripts/dados_pgusuario.js"></script>
+    <!-- <script src="./scripts/cadastro_dataviz_api.js"></script> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
@@ -19,19 +22,21 @@
                 <div class="sobre"><a href="">Sobre</a></div>
             </div>
             <div class="login">
-               <a href="./cadastrar.html"> <img src="img/usuario.png" alt=""></a>               
+               <a id="a_img_login" href="./cadastrar.html"> <img  src="img/usuario.png" alt=""></a>               
             </div>
         </div>
     </div>    
     
     <div class="conteiner-user">
         <div class="conteiner-img-user">
-            <div class="img-user"><img src="./img/tachanca-bebe.png" alt=""></div>
-            <div class="select-img">
-             
-            </div>
+            <div id="img_user" class="img-user"></div>
+            <button onclick="salvar()"></button>
+            <div  class="select-img" id="nome_user"><select onchange="user_img(this.value)" name="" id="select_img"></select></div>
         </div>
         
     </div>
+
+    
 </body>
 </html>
+

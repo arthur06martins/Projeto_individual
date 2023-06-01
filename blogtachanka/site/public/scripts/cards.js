@@ -6,30 +6,51 @@ var imagens = [`./img/atacantes/ace.png`,'./img/defesa/alibi.png','./img/atacant
 './img/atacantes/jackal.png','./img/defesa/mira.png','./img/atacantes/kali.png','./img/defesa/mozzie.png','./img/atacantes/lion.png','./img/defesa/mute.png','./img/atacantes/maverick.png','./img/defesa/oryx.png','./img/atacantes/montagne.png','./img/defesa/pulse.png','./img/atacantes/nomad.png','./img/defesa/rook.png',
 './img/atacantes/nook.png','./img/defesa/smoke.png','./img/atacantes/osa.png','./img/defesa/solis.png','./img/atacantes/sens.png','./img/defesa/tachanka.png','./img/atacantes/sledge.png','./img/defesa/thorn.png','./img/atacantes/thatcher.png','./img/defesa/thunderbird.png','./img/atacantes/thermite.png','./img/defesa/valkyrie.png','./img/atacantes/twitch.png','./img/defesa/vigil.png',
 './img/atacantes/ying.png','./img/defesa/wamai.png','./img/atacantes/zero.png','./img/defesa/warden.png','./img/atacantes/zofia.png']
-document.addEventListener("DOMContentLoaded",function(){
+
+var info_agentes = {
+    ACE:{
+        pick: 2,
+        ban: 3
+        }
+}
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded",function load_agentes(){
     content_atacantes.innerHTML = ""
     var contador = 0
     for(var i = 0;i < imagens.length && i < nomes.length;)
     { 
         var atribuir = imagens[i]
-        var nome = nomes[i]
+        var nome = nomes[i]  
+        testando.innerHTML += `<script>
+            function ${nome}()
+            {
+                
+                dados()
+                
+            }
+            </script>`
         if(i == contador)
         {
             
             content_atacantes.innerHTML += `            <div class="card-agente">
             
-            <div id="img_agente" class="img-agente">  <img src="${[atribuir]}" alt=""></div> 
+            <div id="img_agente_${nome}" onclick="${nome}().click
+        "  class="img-agente">  <img src="${[atribuir]}" alt=""></div> 
             <div class="nome-agente">${nome.toUpperCase()}</div>
-            
-            </div>`
+            </div>
+          
+            `
+
         }
         contador++
         i++
     }
 })
-
-
-
 
 
 

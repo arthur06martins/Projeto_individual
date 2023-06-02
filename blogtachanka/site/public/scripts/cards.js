@@ -11,7 +11,11 @@ var info_agentes = {
     ACE:{
         pick: 2,
         ban: 3
-        }
+        },
+    Alibi:{
+        pick:3,
+        ban:37
+    }
 }
 
 
@@ -62,8 +66,16 @@ document.addEventListener("DOMContentLoaded",function load_agentes(){
        
         if(valor== `img_agente_${nome}`)
         {
+            var nome2 = nome
            
-              
+              for(var item in info_agentes)
+              { 
+                var agente = info_agentes[item]
+                if(item == nome2)
+                {
+                        localStorage.setItem(`${nome2}`,JSON.stringify(agente))
+                }
+              }
           
         }
    }

@@ -18,7 +18,6 @@ var info_agentes = {
 
 
 
-
 document.addEventListener("DOMContentLoaded",function load_agentes(){
     content_atacantes.innerHTML = ""
     var contador = 0
@@ -39,7 +38,7 @@ document.addEventListener("DOMContentLoaded",function load_agentes(){
             
             content_atacantes.innerHTML += `            <div class="card-agente">
             
-            <div id="img_agente_${nome}" onclick="${nome}().click
+            <div id="img_agente_${nome}" onclick="redirecionar(id)
         "  class="img-agente">  <img src="${[atribuir]}" alt=""></div> 
             <div class="nome-agente">${nome.toUpperCase()}</div>
             </div>
@@ -52,6 +51,23 @@ document.addEventListener("DOMContentLoaded",function load_agentes(){
     }
 })
 
+ function redirecionar(valor)
+{
+    
+   var value =  document.getElementById(valor)
+   for(var  i =  0; i< imagens.length;i++)
+   {
+       var nome = nomes[i]          
+       var pick =  `info_agentes.${nome}.pick`
+       
+        if(valor== `img_agente_${nome}`)
+        {
+           
+              
+          
+        }
+   }
+}
 
 
 cont_ataque = 0

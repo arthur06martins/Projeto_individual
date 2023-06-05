@@ -1,4 +1,4 @@
-var nomes = ['ACE','ALIBI','Amaru','Aruni','ash','azumi','blackbird','bandit','blitz','castle','brava','caveira','buck','clash','capitão','doc','dokkaebi','echo','finka','ela','flores','frost','fuze','goyo','glaz','jager','gridlock','kaid','grim','kapkan','hibana','lesion','iana','maestro','iq','melusi','jackal','mira','kali','mozzie','lion','mute','maverick','oryx','montagne','pulse','nomad','rook','nook','smoke','osa','solis','sens','tachanka','sledge','thorn','thatcher','thunderbird','thermite','valkyrie','twitch','vigil','ying','wamai','zero','warden','zofia']
+var nomes = ['ace','alibi','amaru','Aruni','ash','azumi','blackbird','bandit','blitz','castle','brava','caveira','buck','clash','capitão','doc','dokkaebi','echo','finka','ela','flores','frost','fuze','goyo','glaz','jager','gridlock','kaid','grim','kapkan','hibana','lesion','iana','maestro','iq','melusi','jackal','mira','kali','mozzie','lion','mute','maverick','oryx','montagne','pulse','nomad','rook','nook','smoke','osa','solis','sens','tachanka','sledge','thorn','thatcher','thunderbird','thermite','valkyrie','twitch','vigil','ying','wamai','zero','warden','zofia']
 var imagens = [`./img/atacantes/ace.png`,'./img/defesa/alibi.png','./img/atacantes/amaru.png','./img/defesa/aruni.png','./img/atacantes/ash.png','./img/defesa/azami.png','./img/atacantes/blackbird.png',
 './img/defesa/bandit.png','./img/atacantes/blitz.png','./img/defesa/castle.png','./img/atacantes/brava.png','./img/defesa/caveira.png'
 ,'./img/atacantes/buck.png','./img/defesa/clash.png','./img/atacantes/capitao.png','./img/defesa/doc.png','./img/atacantes/dokkaebi.png','./img/defesa/echo.png','./img/atacantes/finka.png','./img/defesa/ela.png','./img/atacantes/flores.png','./img/defesa/frost.png','./img/atacantes/fuze.png',
@@ -7,22 +7,13 @@ var imagens = [`./img/atacantes/ace.png`,'./img/defesa/alibi.png','./img/atacant
 './img/atacantes/nook.png','./img/defesa/smoke.png','./img/atacantes/osa.png','./img/defesa/solis.png','./img/atacantes/sens.png','./img/defesa/tachanka.png','./img/atacantes/sledge.png','./img/defesa/thorn.png','./img/atacantes/thatcher.png','./img/defesa/thunderbird.png','./img/atacantes/thermite.png','./img/defesa/valkyrie.png','./img/atacantes/twitch.png','./img/defesa/vigil.png',
 './img/atacantes/ying.png','./img/defesa/wamai.png','./img/atacantes/zero.png','./img/defesa/warden.png','./img/atacantes/zofia.png']
 
-var info_agentes = {
-    ACE:{
-        pick: 2,
-        ban: 3
-        },
-    Alibi:{
-        pick:3,
-        ban:37
-    }
-}
 
 
 
 
 
-document.addEventListener("DOMContentLoaded",function load_agentes(){
+
+document.addEventListener("DOMContentLoaded",function(){
     content_atacantes.innerHTML = ""
     var contador = 0
     for(var i = 0;i < imagens.length && i < nomes.length;)
@@ -58,25 +49,20 @@ document.addEventListener("DOMContentLoaded",function load_agentes(){
  function redirecionar(valor)
 {
     
-   var value =  document.getElementById(valor)
+//    var value =  document.getElementById(valor)
    for(var  i =  0; i< imagens.length;i++)
    {
        var nome = nomes[i]          
-       var pick =  `info_agentes.${nome}.pick`
+    
        
-        if(valor== `img_agente_${nome}`)
+        if(valor == `img_agente_${nome}`)
         {
-            var nome2 = nome
-           
-              for(var item in info_agentes)
-              { 
-                var agente = info_agentes[item]
-                if(item == nome2)
-                {
-                        localStorage.setItem(`${nome2}`,JSON.stringify(agente))
-                }
-              }
-          
+             localStorage.setItem(`nome`,JSON.stringify(nome))   
+    //  window.location.assign("./usuario.html")
+        setTimeout(() => {
+            window.location = "./pgSobreAgentes.html";
+        }, "100")
+
         }
    }
 }

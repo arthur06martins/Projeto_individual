@@ -23,14 +23,26 @@ document.addEventListener('DOMContentLoaded',function() {
 
         if(`"${nome}"` == GEtlocalstorege  )
         {
+            fetch("/usuario/GetAgentes",{
+                method:"get",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body:JSON.stringify({
+                    agenteServer:nome
+                })
+            
 
-           
-        }
-        
-        
-       
-       
-       
+            }).then(function(resposta){
+                if(resposta.ok)
+                {
+                    resposta.json().then(function(response){
+                        guardardados(response)
+                    })
+                    console.log("ok")
+                }
+            }) 
+        }      
     }
     
     

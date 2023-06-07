@@ -91,7 +91,7 @@ function ataque()
                 
                 content_atacantes.innerHTML += `            <div class="card-agente">
                 
-                <div id="img_agente" class="img-agente">  <img src="${[atribuir]}" alt=""></div> 
+                <div id="img_agente" class="img-agente" onclick="redirecionar(id)>  <img src="${[atribuir]}" alt=""></div> 
                 <div class="nome-agente">${nome.toUpperCase()}</div>
                 
                 </div>`
@@ -118,7 +118,7 @@ function ataque()
                 
                 content_atacantes.innerHTML += `            <div class="card-agente">
                 
-                <div id="img_agente" class="img-agente">  <img src="${[atribuir]}" alt=""></div> 
+                <div id="img_agente" class="img-agente" onclick="redirecionar(id)>  <img src="${[atribuir]}" alt=""></div> 
                 <div class="nome-agente">${nome.toUpperCase()}</div>
                 
                 </div>`
@@ -155,7 +155,7 @@ function defesa()
                 
                 content_atacantes.innerHTML += `            <div class="card-agente">
                 
-                <div id="img_agente" class="img-agente">  <img src="${[atribuir]}" alt=""></div> 
+                <div id="img_agente" class="img-agente" onclick="redirecionar(id)>  <img src="${[atribuir]}" alt=""></div> 
                 <div class="nome-agente">${nome.toUpperCase()}</div>
                 
                 </div>`
@@ -185,7 +185,7 @@ function defesa()
                 
                 content_atacantes.innerHTML += `            <div class="card-agente">
                 
-                <div id="img_agente" class="img-agente">  <img src="${[atribuir]}" alt=""></div> 
+                <div id="img_agente" class="img-agente" >  <img src="${[atribuir]}" alt=""></div> 
                 <div class="nome-agente">${nome.toUpperCase()}</div>
                 
                 </div>`

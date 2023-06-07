@@ -3,6 +3,8 @@ var router = express.Router();
 
 var sobreagentesController = require("../controllers/sobreagentesController");
  
-router.get("./sobreagentes",function (req,res){
-    sobreagentesController.
+router.get("/GetAgentes",function (req,res){
+    sobreagentesController.buscarAgente(req, res)
 })
+
+module.exports = router;

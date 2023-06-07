@@ -103,18 +103,40 @@ body
 
 .content-mapas
 {
+    
     border:2px solid ;
     position: absolute;
     top: 20%;
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    
+    
 
 }
-.mapa1
+.conteiner-mapas
+{ 
+    
+    justify-content: center;
+    position: absolute;
+    top: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+     grid-gap: 5%;
+}
+.cards_mapas 
 {
-    border: solid;
+    
+    margin-bottom: 3%;
+    position: relative;
+    width: 30%;
+    height: 30%;
+    
+    
 
 }
+.img_mapas img{height: 110%; width: 100%;}
+
+

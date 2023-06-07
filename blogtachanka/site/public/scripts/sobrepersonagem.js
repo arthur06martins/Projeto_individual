@@ -1,3 +1,5 @@
+// const { get } = require("../../src/routes/sobreagentes")
+
 var nomes = ['ace','alibi','amaru','Aruni','ash','azumi','blackbird','bandit','blitz','castle','brava','caveira','buck','clash','capitão','doc','dokkaebi','echo','finka','ela','flores','frost','fuze','goyo','glaz','jager','gridlock','kaid','grim','kapkan','hibana','lesion','iana','maestro','iq','melusi','jackal','mira','kali','mozzie','lion','mute','maverick','oryx','montagne','pulse','nomad','rook','nook','smoke','osa','solis','sens','tachanka','sledge','thorn','thatcher','thunderbird','thermite','valkyrie','twitch','vigil','ying','wamai','zero','warden','zofia']
 var imagens = [`./img/atacantes/ace.png`,'./img/defesa/alibi.png','./img/atacantes/amaru.png','./img/defesa/aruni.png','./img/atacantes/ash.png','./img/defesa/azami.png','./img/atacantes/blackbird.png',
 './img/defesa/bandit.png','./img/atacantes/blitz.png','./img/defesa/castle.png','./img/atacantes/brava.png','./img/defesa/caveira.png'
@@ -10,40 +12,43 @@ var imagens = [`./img/atacantes/ace.png`,'./img/defesa/alibi.png','./img/atacant
 
 
 
+var valores = []
 
 
-
-document.addEventListener('DOMContentLoaded',function() {
-
-    var GEtlocalstorege =localStorage.getItem('nome')
-  
+var nome_agentes =localStorage.getItem('nome')
+document.addEventListener('DOMContentLoaded',function(nome_agente) {
+    
+    const ag = nome_agentes
+    nome_agente = ag
     for(var i=0; i < imagens.length; i++)
     {
         var nome = nomes[i]
 
-        if(`"${nome}"` == GEtlocalstorege  )
+        if(`"${nome}"` == ag  )
         {
-            fetch("/usuario/GetAgentes",{
-                method:"get",
-                headers:{
-                    "Content-Type": "application/json"
-                },
-                body:JSON.stringify({
-                    agenteServer:nome
-                })
+            fetch(`/usuarios/buscar/${nome}`,{
+                cache:"no-store"
+                
+                
             
 
             }).then(function(resposta){
                 if(resposta.ok)
                 {
                     resposta.json().then(function(response){
-                        guardardados(response)
+                        for(var i = 0; i < response.length;i++)
+                        {
+                            valores.push(response)
+
+
+                        }
                     })
                     console.log("ok")
                 }
             }) 
         }      
     }
+
     
     
 

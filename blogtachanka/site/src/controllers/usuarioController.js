@@ -6,7 +6,26 @@ function testar(req, res) {
     console.log("ENTRAMOS NA usuarioController");
     res.json("ESTAMOS FUNCIONANDO!");
 }
+function buscarAgente(req,res)
+{
+    var agente = req.params.nome
 
+   
+        usuarioModel.buscarAgente(agente)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
 function listar(req, res) {
     usuarioModel.listar()
         .then(function (resultado) {
@@ -103,5 +122,6 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    buscarAgente,
 }

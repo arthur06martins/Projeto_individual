@@ -94,6 +94,24 @@ document.addEventListener('DOMContentLoaded',function ativar() {
                                     Vradio3.style.background ="aqua"
                                 }
 
+                                //validar dificuldade
+                                if(dificuldade == 1)
+                                {
+                                    Dradio1.style.background ="aqua"
+                          
+                                }
+                                else if(dificuldade== 2)
+                                {
+                                    Dradio1.style.background ="aqua"
+                                    Dradio2.style.background ="aqua"
+                                }
+                                else if(dificuldade == 3)
+                                {
+                                    Dradio2.style.background ="aqua"
+                                    Dradio1.style.background ="aqua"
+                                    Dradio3.style.background ="aqua"
+                                }
+
 
                             }
                             

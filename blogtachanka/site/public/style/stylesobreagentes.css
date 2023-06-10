@@ -267,5 +267,132 @@ body
     width: 50%;
 }
 
+/* 
+dados agente */
 
 
+.conteiner-data
+{
+    display: flex;
+    align-items: center;
+    font-family: lilita;
+    flex-direction: column;
+    position:absolute;
+    transform: translate(-5%);
+    left: 20%;
+    top: 45vw;
+    height: 10.5vw;
+    width: 70%;
+    background:  hsla(0,0%,100%,.6) ;
+}
+.titulo-data .linha{
+    height: 0;
+    width: 100%;
+}
+.titulo-data
+{
+    transform: translate(-10%);
+    height: 30%;
+    width: 30%;
+}
+.nome-titulo-data
+{
+    position: relative;
+    left: 11%;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.inf-data
+{
+    
+    position: absolute;
+    top: 4vw;
+    transform: translate(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 7vw;
+}
+
+.inf-data .linha{
+    height: 70%;
+    width: 0%;
+}
+.real-nome
+{
+    margin-right: 2%;
+    margin-left: 2%;
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+    width: 22%;
+    font-size: 1.5vw;
+}
+.data-nasc
+{
+    margin-left: 3%;
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+    width: 30%;
+    font-size: 1.5vw;
+}
+.local-nasc
+{
+    margin-left: 3%;
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+    width: 30%;
+    font-size: 1.5vw;
+}
+.alinhar
+{
+    
+    position: relative;
+    bottom: 2%;
+    left: 2%;
+}
+
+
+
+.conteiner-biografia
+{
+   
+    height: 90%;
+    transform: translate(12%);
+    position: absolute;
+    top: 65vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+}
+.titulo-biografia
+{
+    position: relative;
+    bottom: 10%;
+    height: 10%;
+    font-size: 4vw;
+    font-family: lilita;
+    color:black;
+ 
+}
+.txt-biografia
+{
+    font-family: lilita;
+    font-size: 2vw;
+}
+.titulo_txt
+{
+    margin-bottom: 2%;
+    flex-wrap: wrap;
+    position: relative;
+    display: flex;
+    font-family: lilita;
+    font-size: 2.6vw;
+}

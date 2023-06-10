@@ -15,7 +15,7 @@ body
     height: 100%;
     margin: 0px;
     padding: 0px;
-    background:fixed url(../img/plano_de_fundo.png);
+    background:fixed url(../img/img.jpg);
 }
 .content-navbar
 {
@@ -64,11 +64,11 @@ body
 }
 .navbar .img-logo
 {
-    
     background-color: rgba(245, 227, 227, 0.020);;
     position: relative;
     right: 15%;
     width: 6%;
+  
     border-radius: 100%;
 }
 .img-logo img
@@ -90,7 +90,7 @@ body
 .login img
 {
     position: absolute;
-    width: 100%;
+    width: 90%;
     height: 100%;
     cursor: pointer;
 }
@@ -245,9 +245,3 @@ body
     background: linear-gradient(12deg #2499ff , rgba(0,255,230,0));
     
 }
-.titulo-artigo-3 :hover
-{
-    border: solid rgba(0,255,230,0);
-    background: linear-gradient(12deg #2499ff 0,rgba(0,255,230,0));
-}
-

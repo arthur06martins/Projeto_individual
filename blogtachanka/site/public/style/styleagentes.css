@@ -14,7 +14,7 @@ body
 {
     margin: 0;
     padding: 0;
-    background:fixed url(../img/plano_de_fundo.png);
+    background:fixed url(../img/img.jpg);
     
 }
 .content-navbar
@@ -95,7 +95,7 @@ body
 .login img
 {
     position: absolute;
-    width: 100%;
+    width: 90%;
     height: 100%;
     cursor: pointer;
 }
@@ -132,8 +132,8 @@ final da navbar */
     display: flex;
     justify-content: center;
     flex-direction: row;
-    height: 80%;
-    width: 80%;
+    height: 90%;
+    width: 82%;
 }
 .img-agente img{height: 110%; width: 100%;}
 .img-agente
@@ -144,6 +144,7 @@ final da navbar */
 }
 .card-agente 
 {
+    
     position: relative;
     top: 5%;
     background-color: hsla(0,0%,100%,.15);
@@ -151,7 +152,7 @@ final da navbar */
     flex-direction: column;
     justify-content: center;
     width: 15%;
-    height: 50%;
+    height: 44%;
   
 }
 .nome-agente
@@ -166,6 +167,7 @@ final da navbar */
     justify-content: center;
     height: 15%;
     top: 3%;
+    
 }
 
 .card-agente:hover 
@@ -173,7 +175,6 @@ final da navbar */
     
     background-color: aqua;
     transition: all .3s ease ;
-
     scale: 130%;
     z-index: 1;
 }

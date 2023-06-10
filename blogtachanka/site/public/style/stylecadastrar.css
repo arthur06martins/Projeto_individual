@@ -46,7 +46,7 @@ body {
     display: grid;
     place-content: center;
     font-family: 'lilita', sans-serif;
-    background: url(../img/plano_de_fundo.png);
+    background: url(../img/img.jpg);
 }
 .nav {
     z-index: 999;
@@ -157,7 +157,7 @@ label{
     background: rgba(56, 190, 179, 0.918);
     transition: 0.3s;
 }
-input:focus ~ label{
+input:hover ~ label{
 width: 100%;
 }
 a{

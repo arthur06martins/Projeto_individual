@@ -14,7 +14,7 @@ body
 {
     margin: 0;
     padding: 0;
-    background:fixed url(../img/plano_de_fundo.png);
+    background:fixed url(../img/img.jpg);
     
 }
 .content-navbar
@@ -95,7 +95,7 @@ body
 .login img
 {
     position: absolute;
-    width: 100%;
+    width: 90%;
     height: 100%;
     cursor: pointer;
 }

@@ -1,4 +1,4 @@
-var nomes = ['ace','alibi','amaru','Aruni','ash','azumi','blackbird','bandit','blitz','castle','brava','caveira','buck','clash','capitão','doc','dokkaebi','echo','finka','ela','flores','frost','fuze','goyo','glaz','jager','gridlock','kaid','grim','kapkan','hibana','lesion','iana','maestro','iq','melusi','jackal','mira','kali','mozzie','lion','mute','maverick','oryx','montagne','pulse','nomad','rook','nook','smoke','osa','solis','sens','tachanka','sledge','thorn','thatcher','thunderbird','thermite','valkyrie','twitch','vigil','ying','wamai','zero','warden','zofia']
+var nomes = ['ace','alibi','amaru','aruni','ash','azumi','blackbird','bandit','blitz','castle','brava','caveira','buck','clash','capitão','doc','dokkaebi','echo','finka','ela','flores','frost','fuze','goyo','glaz','jager','gridlock','kaid','grim','kapkan','hibana','lesion','iana','maestro','iq','melusi','jackal','mira','kali','mozzie','lion','mute','maverick','oryx','montagne','pulse','nomad','rook','nook','smoke','osa','solis','sens','tachanka','sledge','thorn','thatcher','thunderbird','thermite','valkyrie','twitch','vigil','ying','wamai','zero','warden','zofia']
 var imagens = [`./img/atacantes/ace.png`,'./img/defesa/alibi.png','./img/atacantes/amaru.png','./img/defesa/aruni.png','./img/atacantes/ash.png','./img/defesa/azami.png','./img/atacantes/blackbird.png',
 './img/defesa/bandit.png','./img/atacantes/blitz.png','./img/defesa/castle.png','./img/atacantes/brava.png','./img/defesa/caveira.png'
 ,'./img/atacantes/buck.png','./img/defesa/clash.png','./img/atacantes/capitao.png','./img/defesa/doc.png','./img/atacantes/dokkaebi.png','./img/defesa/echo.png','./img/atacantes/finka.png','./img/defesa/ela.png','./img/atacantes/flores.png','./img/defesa/frost.png','./img/atacantes/fuze.png',
@@ -46,18 +46,18 @@ document.addEventListener("DOMContentLoaded",function(){
     }
 })
 
- function redirecionar(valor)
+ function redirecionar(valor) // função para pegar id e enviar para a pagina sobreAgente
 {
     
 //    var value =  document.getElementById(valor)
    for(var  i =  0; i< imagens.length;i++)
    {
        var nome = nomes[i]          
-    
+   
        
         if(valor == `img_agente_${nome}`)
         {
-             localStorage.setItem(`nome`,JSON.stringify(nome))   
+             localStorage.setItem(`a`,JSON.stringify(nome))   
     //  window.location.assign("./usuario.html")
         setTimeout(() => {
             window.location = "./pgSobreAgentes.html";
@@ -66,11 +66,10 @@ document.addEventListener("DOMContentLoaded",function(){
         }
    }
 }
-
-
 cont_ataque = 0
-function ataque()
+function ataque()//função para verificar o click no botão e plotar os valores no fronte
 {   
+
     cont_defesa = 0
     defensores.innerHTML =`<span >Defesa</span>`
     var validar = document.getElementById("atacantes").click
@@ -88,12 +87,11 @@ function ataque()
             var nome = nomes[i]
             if(i == contador)
             {
-                
-                content_atacantes.innerHTML += `            <div class="card-agente">
-                
-                <div id="img_agente" class="img-agente" onclick="redirecionar(id)>  <img src="${[atribuir]}" alt=""></div> 
-                <div class="nome-agente">${nome.toUpperCase()}</div>
-                
+                console.log("to aqui")
+                content_atacantes.innerHTML += `          
+                <div class="card-agente">
+                     <div id="img_agente_${nome}" class="img-agente" onclick="redirecionar(id)"><img src="${[atribuir]}" alt=""></div> 
+                    <div class="nome-agente">${nome.toUpperCase()}</div>
                 </div>`
             }
             contador+=2
@@ -103,6 +101,7 @@ function ataque()
 
         }
         cont_ataque = 1
+        
     }
     else if( cont_ataque == 1)
     {
@@ -118,7 +117,7 @@ function ataque()
                 
                 content_atacantes.innerHTML += `            <div class="card-agente">
                 
-                <div id="img_agente" class="img-agente" onclick="redirecionar(id)>  <img src="${[atribuir]}" alt=""></div> 
+                <div id="img_agente_${nome}" class="img-agente" onclick="redirecionar(id)">  <img src="${[atribuir]}" alt=""></div> 
                 <div class="nome-agente">${nome.toUpperCase()}</div>
                 
                 </div>`
@@ -130,10 +129,8 @@ function ataque()
     }
     
 }
-
-
 cont_defesa = 0
-function defesa()
+function defesa()//função para verificar o click no botão e plotar os valores no fronte
 {
     atacantes.innerHTML =`<span >Atacantes</span>`
     cont_ataque = 0
@@ -153,11 +150,10 @@ function defesa()
             if(i == contador)
             {
                 
-                content_atacantes.innerHTML += `            <div class="card-agente">
-                
-                <div id="img_agente" class="img-agente" onclick="redirecionar(id)>  <img src="${[atribuir]}" alt=""></div> 
-                <div class="nome-agente">${nome.toUpperCase()}</div>
-                
+                content_atacantes.innerHTML += `            
+                <div class="card-agente">
+                    <div id="img_agente_${nome}" class="img-agente" onclick="redirecionar(id)">  <img src="${[atribuir]}" alt=""></div> 
+                    <div class="nome-agente">${nome.toUpperCase()}</div>
                 </div>`
             }
             
@@ -185,7 +181,7 @@ function defesa()
                 
                 content_atacantes.innerHTML += `            <div class="card-agente">
                 
-                <div id="img_agente" class="img-agente" >  <img src="${[atribuir]}" alt=""></div> 
+                <div id="img_agente_${nome}" class="img-agente" onclick="redirecionar(id)"><img src="${[atribuir]}" alt=""></div> 
                 <div class="nome-agente">${nome.toUpperCase()}</div>
                 
                 </div>`

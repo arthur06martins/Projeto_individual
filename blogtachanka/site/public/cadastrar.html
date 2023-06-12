@@ -118,6 +118,7 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
+            localStorage.setItem("logado", JSON.stringify("true"))
         } else {
             throw ("Houve um erro ao tentar realizar o cadastro!");
         }
@@ -133,6 +134,7 @@
 
 function entrar() {
  
+    
     var emailVar = inp_login_email.value;
     var senhaVar = inp_login_senha.value;
 
@@ -159,10 +161,12 @@ function entrar() {
         if (resposta.ok) {
             console.log(resposta);
             resposta.json().then(json => {
+               
                 console.log(json);
                 console.log(JSON.stringify(json));
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
+                
                  window.location = "./usuario.html";
 
             });

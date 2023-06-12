@@ -9,13 +9,13 @@
      src: url(../fonts/good_times/good\ times\ rg.otf);
 }
 
-
 body
 {
-    margin: 0;
-    padding: 0;
+
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
     background:fixed url(../img/img.jpg);
-    
 }
 .content-navbar
 {
@@ -41,12 +41,6 @@ body
     justify-content: center;
  
 }
-.text-navbar .pginicial
-{
-   
-   width: 15%;
-  
-}
 .text-navbar /* textos da navbar*/
 {
     display: flex;
@@ -55,6 +49,7 @@ body
     justify-content: center;
     grid-gap: 20%;
     position: relative;
+    display: flex;
     width: 50%;
    
     
@@ -78,94 +73,129 @@ body
 }
 .img-logo img
 {
+    color: rgba(76, 117, 133, 0.103);
     position: absolute;
     width: 100%;
     height: 100%;
 }
 .login
 {
-    width: 8%;
+    height: 90%;
+    width: 6%;
     position: relative;
     left: 18%;
-    
+    top: 5%;
     border-radius: 100%;
     padding: 0;
+    
+}
+.img_user_logo
+{
+    border-radius: 100%;
+    background: rgba(76, 117, 133, 0.226);
+    position: absolute;
+    
     
 }
 .login img
 {
     position: absolute;
-    width: 90%;
+    width: 100%;
     height: 100%;
     cursor: pointer;
 }
+
 /* final navbar */
 
-.content-mapas
-{
-    
-    
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    
-    
 
-}
-.conteiner-mapas
-{ 
-    
-    justify-content: center;
-    position: absolute;
-    top: 2%;
-    display: flex;
-    flex-wrap: wrap;
-    width: 80%;
-     grid-gap: 5%;
-}
-.cards_mapas 
-{
-    
-    margin-bottom: 3%;
-    position: relative;
-    width: 30%;
-    height: 30%;
-    
-    
-
-}
-.cards_mapas:hover
-{
-    transition: all .3s ease ;
-    scale: 170%;
-    z-index: 1;
-}
-.img_mapas img{height: 110%; width: 100%;}
-
-.nome_mapa
-{
-    position: relative;
-    font-size: 4vh;
-    font-family: "lilita";
-    align-items: center;
-    margin: 0;
-    background-color:rgb(206, 194, 194) ;
-    display: flex;
-    justify-content: center;
-    height: 30%;
-  
-}
-.titulo 
+.conteiner-quiz
 {
     font-family: lilita;
-    font-size: 4vw;
-    position: absolute;
-    color: white;
+    display: flex;
+     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+    position:absolute;
+    top: 50%;
     left: 50%;
+    width: 95%;
     transform: translate(-50%);
-    top: 30%;
+    
+    box-shadow: 0px 6px 7px 10px rgba(59, 92, 211, 0.904) ;
 }
 
+.content-pergunta
+{
+    margin: 2%;
+    font-size: 3vw;
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: 70%;
+}
+.content-questao
+{
+    font-size: 3vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.resposta input
+{
+    border-style: none;
+    width: 5%;
+    position: relative;
+    bottom: 0.5vw;
+    left: 0.5vw;
+    
+}
+.btn-respostas
+{
+    position: relative;
+    left: 25vw;
+    bottom: 2vw;
+    right: 8vw;
+    cursor: pointer;
+    font-size: 3vw;
+    background-color:  rgba(114, 224, 218, 0.651);
+    border-style: none;
+}
+.results
+{
+   
+    font-size: 3vw;
+    height: 25vw;
+    width: 40vw;
+    position: relative;
+    bottom: 2vw;
+    left:2vw;
+}
+
+.btn-respostas:hover
+{
+    background: linear-gradient( rgba(114, 224, 218, 0.651),rgba(43,58,112,0.000));
+   
+}
+
+.grafico
+{
+    border: solid;
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+    width: 50%;
+    top: 290vh;
+    height: 60%;
+}
+
+.titulo
+{
+    font-family: lilita;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 5vw;
+    color: white;
+    top: 30%;
+}

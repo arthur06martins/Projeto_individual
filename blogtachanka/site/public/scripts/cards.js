@@ -20,14 +20,7 @@ document.addEventListener("DOMContentLoaded",function(){
     { 
         var atribuir = imagens[i]
         var nome = nomes[i]  
-        testando.innerHTML += `<script>
-            function ${nome}()
-            {
-                
-                dados()
-                
-            }
-            </script>`
+
         if(i == contador)
         {
             

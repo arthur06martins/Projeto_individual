@@ -239,10 +239,10 @@ button{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding:0px 40px ;
+    padding:20px 4%;
     text-align: center;
     height: 100%;
-    width: 340px;
+    width: 26vw;
     transition: 0.6s ease-in-out;
 }
 

@@ -1,3 +1,5 @@
+
+var nomes = [`banco`,`base hereford`,`border`,`clubhouse`,`litoral`,`consulado`,`planície esmeralda`,`favela`,`fortaleza`,`residência`,`café dostoyevsky`,`canal`,`laboratórios nighthaven`,`oregon`,`outback`,`plane`,`arranha-céu`,`estadio`,`parque tematico`,`torre`,`mansão`,`iate`]
 var img_mapas = [`./img/mapas/bank.jpg`,`./img/mapas/base_hereford.jpg`,`./img/mapas/border.jpg`,
 `./img/mapas/clubhouse.jpg`,`./img/mapas/coastline.jpg`,`./img/mapas/consulado.jpg`,`./img/mapas/emerald_plains.jpg`,
 `./img/mapas/favela.jpg`,`./img/mapas/fortaleza.jpg`,`./img/mapas/house.jpg`,`./img/mapas/kafe.jpg`,`./img/mapas/kanal.jpg`,
@@ -10,8 +12,9 @@ document.addEventListener("DOMContentLoaded",function(){
     for(var i = 0;i <img_mapas.length; i++)
     {
         var atribuir = img_mapas[i]
+        var nome = nomes[i] 
 
-        mapas.innerHTML += `<div class= "cards_mapas"><div class="img_mapas" id= "mapa${i}"> <img src="${[atribuir]}" alt=""></div>`
+        mapas.innerHTML += `<div class= "cards_mapas"><div class="img_mapas" id= "mapa${i}"> <img src="${[atribuir]}" alt=""><div class = "nome_mapa">${nome.toUpperCase()}</div></div>`
 
     }
 })

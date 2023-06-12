@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/styleQuiz.css">
+    <script src="./scripts/dash_quiz.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Document</title>
+</head>
+<body onload="plotarDados()">
+    <div class="content-navbar">
+        <div class="navbar">
+            
+            <div class="img-logo" onclick="clicar()">
+                <img src="./img/tachanca-bebe.png" alt="">  
+            </div>
+            <div class="text-navbar">
+                <div class="pginicial"><a href="./Index.html">HOME</a></div>
+                <div class="mapas"><a href="./mapas.html">MAPAS</a></div>
+                <div  class="agente"><a href="">AGENTES</a></div>
+            </div>
+            <div class="login">
+                <a href="./cadastrar.html"> <img src="./img/usuario.png" alt=""></a>               
+            </div>
+        </div>
+        
+    </div>   
+    <div class="titulo">QUIZ DO TACHANKA</div>
+    <div class="conteiner-quiz">
+        <div class="content-pergunta">
+            <div class="titulo-questao">1-Qual agente não é atacante?</div>
+            <div class="content-questao">
+                <span class="questao">(A) Sldge</span>
+                <span class="questao">(B) Capitão</span>
+                <span class="questao">(C) Frost</span>
+                <span class="questao">(D) Ying</span>
+            </div>
+           <div class="resposta"><span>informe a sua resposta:</span><input maxlength="1" id="resposta1"></div> 
+        </div>
+        <div class="content-pergunta">
+            <div class="titulo-questao">2-Quais os agentes que tem escudos?</div>
+            <div class="content-questao">
+                <span class="questao">(A) Fuze-Smoke-Osa-Sens</span>
+                <span class="questao">(B) Grim-Meluse-Twitch</span>
+                <span class="questao">(C) Clash-Blitz-Fuze-montagne</span>
+                <span class="questao">(D) Vigil</span>
+            </div>
+           <div class="resposta"><span>informe a sua resposta:</span><input maxlength="1" id="resposta2"></div> 
+        </div>
+        <div class="content-pergunta">
+            <div class="titulo-questao">3-Quais agentes podem curar no game?</div>
+            <div class="content-questao">
+                <span class="questao">(A) Smoke-Blitz-Fuze</span>
+                <span class="questao">(B) Frost-Doc-Maestro</span>
+                <span class="questao">(C) Vigil-Clash</span>
+                <span class="questao">(D) Doc-Thunderbird-Finka</span>
+            </div>
+           <div class="resposta"><span>informe a sua resposta:</span><input maxlength="1" id="resposta3"></div> 
+        </div>
+        <div class="content-pergunta">
+            <div class="titulo-questao">4-Quem é irmã da Ela?</div>
+            <div class="content-questao">
+                <span class="questao">(A) Zofia</span>
+                <span class="questao">(B) Caveira</span>
+                <span class="questao">(C) Brava</span>
+                <span class="questao">(D) Ying</span>
+            </div>
+           <div class="resposta"><span>informe a sua resposta:</span><input maxlength="1" id="resposta4"></div> 
+        </div>
+        <div class="content-pergunta">
+            <div class="titulo-questao">5-Que agente utiliza uma marreta?</div>
+            <div class="content-questao">
+                <span class="questao">(A) Fuze</span>
+                <span class="questao">(B) Grim</span>
+                <span class="questao">(C) Sledge</span>
+                <span class="questao">(D) Smoke</span>
+            </div>
+           <div class="resposta"><span>informe a sua resposta:</span><input maxlength="1" id="resposta5"></div> 
+        </div>
+        <div class="content-pergunta">
+            <div class="titulo-questao">6-Qual agente tem a habilidade de hacker?</div>
+            <div class="content-questao">
+                <span class="questao">(A) Finka</span>
+                <span class="questao">(B) Ash</span>
+                <span class="questao">(C) Clash</span>
+                <span class="questao">(D) Dokkaebi</span>
+            </div>
+           <div class="resposta"><span>informe a sua resposta:</span><input maxlength="1" id="resposta6"></div> 
+        </div>
+        <div class="content-pergunta">
+            <div class="titulo-questao">7-Qual o maior ranking do Rainbow six??</div>
+            <div class="content-questao">
+                <span class="questao">(A) Master Legue</span>
+                <span class="questao">(B) Master</span>
+                <span class="questao">(C) Diamante</span>
+                <span class="questao">(D) Campeão</span>
+            </div>
+           <div class="resposta"><span>informe a sua resposta:</span><input maxlength="1" id="resposta7"></div> 
+        </div>
+
+        <div id="results" class="results"></div>
+        <div class="btn-respostas" onclick="respostas()">Enviar respostas</div>
+    </div>
+    <section>
+        <div class="grafico">
+            <canvas id="ranking_quiz"></canvas>
+        </div>
+    </section>
+</body>
+</html>
+
+<script>
+
+    var pontos = 0
+    function respostas()
+{
+
+    
+
+     var r1 = (resposta1.value).toUpperCase()
+     var r2 = (resposta2.value).toUpperCase()
+     var r3 = (resposta3.value).toUpperCase()
+     var r4 = (resposta4.value).toUpperCase()
+     var r5 = (resposta5.value).toUpperCase()
+     var r6 = (resposta6.value).toUpperCase()
+     var r7 = (resposta7.value).toUpperCase()
+    
+
+    
+
+       if(r1 == "A")
+       {
+           nota = 2
+       }
+       else{
+        results.innerHTML += `1-Você errou<br>`
+       }
+       if(r2 == "C")
+       {
+           nota = 3
+       }
+       else{
+        results.innerHTML += `2-Você errou<br>`
+       }
+       if(r3 == "D")
+       {
+           nota = 2
+       }
+       else{
+        results.innerHTML += `3-Você errou<br>`
+       }
+
+       if(r4 == "A")
+       {
+           nota = 2
+       }
+       else{
+        results.innerHTML += `4-Você errou<br>`
+       }
+       if(r5 == "C")
+       {
+           nota = 2
+       }
+       else{
+        results.innerHTML += `5-Você errou<br>`
+       }
+       if(r6 == "D")
+       {
+           nota = 3
+       }
+       else{
+        results.innerHTML += `6-Você errou<br>`
+       }
+
+       if(r7 == "D")
+       {
+           nota = 2
+       }
+       else{
+        results.innerHTML += `7-Você errou<br>`
+       }
+        fetch("/usuario/")                                                                                                
+}
+</script>

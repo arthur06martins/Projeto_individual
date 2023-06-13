@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,24 +9,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+
+<body onload="verificar_user()">
     <div class="content-navbar">
         <div class="navbar">
             <div class="img-logo">
-                <img src="img/tachanca-bebe.png" alt="">  
+                <img src="img/tachanca-bebe.png" alt="">
             </div>
-           <div class="text-navbar">
-                <div ><a href="./agentes.html">AGENTES</a></div>
-                <div ><a href="./Index.html">HOME</a></div>
-                <div ><a href="">SOBRE</a></div>
-                <div ><a href="./mapas.html">MAPAS</a></div>
-                
-            </div>
-            <div class="login">
-               <a href="./cadastrar.html"> <img src="img/usuario.png" alt=""></a>               
+            <div class="text-navbar">
+                <div><a href="./agentes.html">AGENTES</a></div>
+                <div><a href="./Index.html">HOME</a></div>
+                <div><a href="./sobre.html">DEV</a></div>
+                <div><a href="./mapas.html">MAPAS</a></div>
+                <div id="user_navbar" class="login">
+                    <a href="./cadastrar.html"> <img src="img/usuario.png" alt=""></a>
+                </div>
             </div>
         </div>
-    </div>    
+    </div>
 
     <div class="conteiner">
         <div class="conteiner-agente">
@@ -34,26 +35,26 @@
                 <div id="j" class="nome-agente"></div>
             </div>
             <div class="inf-lado  ">
-               <div>LADO:</div>
-               <div id="agente_lado" style="margin: 10px;"></div>
-              
+                <div>LADO:</div>
+                <div id="agente_lado" style="margin: 10px;"></div>
+
             </div>
-            
+
             <div class="inf-especialidade ">
                 <div>ESPECIALIDADE</div>
                 <div class="linha"></div>
                 <div id="especialidade"></div>
 
             </div>
-            
+
             <div class="inf-status distancia">
                 <div class="inf-saude">
                     <div>SAUDE</div>
                     <div class="linha"></div>
                     <div id="r" class="radios">
-                       <div id="Sradio1" class=""></div>
-                       <div id="Sradio2" class=""></div>
-                       <div id="Sradio3" class=""></div>
+                        <div id="Sradio1" class=""></div>
+                        <div id="Sradio2" class=""></div>
+                        <div id="Sradio3" class=""></div>
                     </div>
                 </div>
                 <div class="inf-velocidade">
@@ -63,7 +64,7 @@
                         <div id="Vradio1" class=""></div>
                         <div id="Vradio2" class=""></div>
                         <div id="Vradio3" class=""></div>
-                     </div>
+                    </div>
                 </div>
                 <div class="inf-dificuldade">
                     <div>DIFICULDADE</div>
@@ -72,13 +73,13 @@
                         <div id="Dradio1" class=""></div>
                         <div id="Dradio2" class=""></div>
                         <div id="Dradio3" class=""></div>
-                     </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
+
         <div class="conteiner-img-agente">
-            <div id="imagen_agente" class="img_">  </div>
+            <div id="imagen_agente" class="img_"> </div>
         </div>
     </div>
     <div class="conteiner-data">
@@ -87,19 +88,19 @@
         </div>
         <div class="cont-inf">
             <div class="inf-data">
-                <div  class="real-nome">
+                <div class="real-nome">
                     <div><span>NOME REAL</span></div>
-                    <div  class="alinhar" id="DIV_nome_agente"></div>
+                    <div class="alinhar" id="DIV_nome_agente"></div>
                 </div>
                 <div class="linha"></div>
-                <div  class="data-nasc">
-                    <div ><span>DATA DE NASCIMENTO</span></div>
+                <div class="data-nasc">
+                    <div><span>DATA DE NASCIMENTO</span></div>
                     <div class="alinhar" id="DIV_data_nasc"></div>
                 </div>
                 <div class="linha"></div>
-                <div  class="local-nasc">
-                   <div><span>LOCAL DE NASCIMENTO</span></div>
-                <div class="alinhar" id="DIV_local_nasc"></div>
+                <div class="local-nasc">
+                    <div><span>LOCAL DE NASCIMENTO</span></div>
+                    <div class="alinhar" id="DIV_local_nasc"></div>
                 </div>
             </div>
         </div>
@@ -109,12 +110,23 @@
 
         <div class="titulo_txt" id="DIV_titulo_txt_biografia"></div>
         <div id="DIV_txt_biografia" class="txt-biografia">
-            
+
         </div>
     </div>
 </body>
+
 </html>
 
 <script>
-    
+    function verificar_user() {
+        var email = sessionStorage.getItem('EMAIL_USUARIO')
+        var apelido = sessionStorage.getItem('apelido')
+
+        if (email == undefined) {
+            user_navbar.innerHTML = ` <a onclick="verificar_user()" href="./cadastrar.html">LOGIN</a>`
+        }
+        else {
+            user_navbar.innerHTML = ` <a onclick="verificar_user()" href="./quiz.html">${apelido}</a>`
+        }
+    }
 </script>

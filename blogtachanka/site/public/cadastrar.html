@@ -165,11 +165,12 @@ function entrar() {
                 console.log(json);
                 console.log(JSON.stringify(json));
                 localStorage.setItem("logado", JSON.stringify("1"))
+                sessionStorage.apelido = json.apelido
                 sessionStorage.id = json.id;
                 sessionStorage.EMAIL_USUARIO = json.email;
                 sessionStorage.NOME_USUARIO = json.nome;
                 
-                 window.location = "./usuario.html";
+                 window.location = "./quiz.html";
 
             });
         } else {

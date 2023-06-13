@@ -22,6 +22,7 @@ body
     
    display: flex;
    position: absolute;
+   top: 0%;
    width: 100%;
    justify-content: center;
    height: 15%;
@@ -33,11 +34,12 @@ body
 }
 .navbar 
 {
+
     display: flex;
     margin: 0;
     position: relative;
     height: 100%;
-    width: 95%; 
+    width: 100%; 
     justify-content: center;
  
 }
@@ -107,7 +109,7 @@ body
     border: 3px solid  rgba(0,0,0,0.500);
     position: absolute;
     left: 5%;
-    top: 25%;
+    top: 30%;
     width: 40%;
     height: 50%;
     background-color: rgba(220,220,220,0.200);
@@ -125,19 +127,83 @@ body
     align-items: center;
     font-size: 150%;
     position: absolute;
-    top: 25%;
+    top: 20%;
     height: 60%;
     width: 90%;
     /* font-family: ; */
 
 }
+.img-artigo1 img
+{
+    border: solid;
+    width: 90%;
+    height: 90%;
+
+}
+.img-artigo1
+{
+    overflow: hidden;
+    border-radius: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid  rgba(0,0,0,0.500);
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    width: 40%;
+    height: 50%;
+    background-color: rgba(220,220,220,0.200);
+}
+.img-artigo2
+{
+    overflow: hidden;
+    border-radius: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid  rgba(0,0,0,0.500);
+    position: absolute;
+    left: 5%;
+    top: 95%;
+    width: 40%;
+    height: 50%;
+    background-color: rgba(220,220,220,0.200);
+}
+.img-artigo2 img{
+    border: solid;
+    width: 90%;
+    height: 90%;
+}
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+  .a{
+    position: absolute;
+    top: 70vw;
+  }
+
+  .footer p {
+    margin: 0;
+    font-size: 14px;
+  }
 
 .titulo-artigo-1 h1
 {
     color: rgba(15, 15, 17, 0.733);
     font-family: "Good_times" ;
     position: relative;
-    top: -6%;
+    position: absolute;
+    width: 80%;
+    top: 15%;
+    left: 60%;
+    transform: translate(-50%);
     font-size: 35px;
    
 }
@@ -170,7 +236,7 @@ body
     align-items: center;
     font-size: 150%;
     position: absolute;
-    top: 25%;
+    top: 30%;
     height: 60%;
     width: 90%;
 }

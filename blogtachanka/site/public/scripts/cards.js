@@ -64,12 +64,12 @@ function ataque()//função para verificar o click no botão e plotar os valores
 {   
 
     cont_defesa = 0
-    defensores.innerHTML =`<span >Defesa</span>`
+    defensores.innerHTML =`<span >DEFENSORES</span>`
     var validar = document.getElementById("atacantes").click
     
     if(validar && cont_ataque == 0)
     {
-        atacantes.innerHTML =`<span style="color: red">Atacantes</span>`
+        atacantes.innerHTML =`<span style="color: red">ATACANTES</span>`
         
         content_atacantes.innerHTML =""
         var contador = 0
@@ -98,7 +98,7 @@ function ataque()//função para verificar o click no botão e plotar os valores
     }
     else if( cont_ataque == 1)
     {
-        atacantes.innerHTML =`<span >Atacantes</span>`
+        atacantes.innerHTML =`<span >ATACANTES</span>`
         content_atacantes.innerHTML = ""
         var contador = 0
         for(var i = 0;i < imagens.length && i < nomes.length;)
@@ -125,13 +125,13 @@ function ataque()//função para verificar o click no botão e plotar os valores
 cont_defesa = 0
 function defesa()//função para verificar o click no botão e plotar os valores no fronte
 {
-    atacantes.innerHTML =`<span >Atacantes</span>`
+    atacantes.innerHTML =`<span >ATACANTES</span>`
     cont_ataque = 0
     var validar = document.getElementById("defensores").click
     
     if(validar &&  cont_defesa == 0)
     {
-        defensores.innerHTML =`<span style="color:red;" >Defesa</span>`
+        defensores.innerHTML =`<span style="color:red;" >DEFENSORES</span>`
         content_atacantes.innerHTML = ""
         var contador = 1
         for(var i = 1;i < imagens.length;)
@@ -161,7 +161,7 @@ function defesa()//função para verificar o click no botão e plotar os valores
     else if( cont_defesa== 1)
     {
         cont_ataque = 0
-        defensores.innerHTML =`<span;" >Defesa</span>`
+        defensores.innerHTML =`<span;" >DEFENSORES</span>`
         
         content_atacantes.innerHTML = ""
         var contador = 0

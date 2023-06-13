@@ -26,7 +26,10 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
-router.get("/getpontos:id",function(req,res)
-{ usuarioController.getpontos(req,res);})
+router.post("/pegarponto",function(req,res)
+
+{ usuarioController.pegarponto(req,res);
+   
+})
 
 module.exports = router;

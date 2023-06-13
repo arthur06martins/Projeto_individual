@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html id="HTML_tag" lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,39 +10,53 @@
     <link rel="stylesheet" href="./style/styleagentes.css">
 </head>
 
-<body >
+<body onload="verificar_user()">
     <div class="content-navbar">
         <div class="navbar">
-         
+
             <div class="img-logo" onclick="clicar()">
-                <img src="./img/tachanca-bebe.png" alt="">  
+                <img src="./img/tachanca-bebe.png" alt="">
             </div>
-           <div class="text-navbar">
+            <div class="text-navbar">
                 <div class="pginicial"><a href="./Index.html">HOME</a></div>
                 <div class="mapas"><a href="./mapas.html">MAPAS</a></div>
-                <div  class="sobre"><a href="">SOBRE</a></div>
+                <div class="sobre"><a href="./sobre.html">DEV</a></div>
+                <div id="user_navbar" class="login">
+                </div>
             </div>
-            <div class="login">
-               <a href="./cadastrar.html"> <img src="./img/usuario.png" alt=""></a>               
-            </div>
+
         </div>
-        
-    </div>   
-    
+
+    </div>
+
     <div id="content_agentes" class="content-agentes">
-        
+
         <div class="titulo-atacantes"><i> AGENTES</i></div>
         <div id="content-botoes" class="content-botoes">
-            <div  onclick="ataque()" id="atacantes">Atacantes</div>
-            <div onclick="defesa()" id="defensores">Defesa</div>
-        </div> 
-        
+            <div onclick="ataque()" id="atacantes">ATACANTES</div>
+            <div onclick="defesa()" id="defensores">DEFENSORES</div>
+        </div>
+
         <div id="content_atacantes" class="content-atacantes">
 
 
         </div>
     </div>
-    
+
 
 </body>
+
 </html>
+<script>
+    function verificar_user() {
+        var email = sessionStorage.getItem('EMAIL_USUARIO')
+        var apelido = sessionStorage.getItem('apelido')
+
+        if (email == undefined) {
+            user_navbar.innerHTML = ` <a onclick="verificar_user()" href="./cadastrar.html">LOGIN</a>`
+        }
+        else {
+            user_navbar.innerHTML = ` <a onclick="verificar_user()" href="./quiz.html">${apelido}</a>`
+        }
+    }
+</script>

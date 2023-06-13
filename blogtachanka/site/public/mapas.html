@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,26 +9,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+
+<body onload="verificar_user()">
     <div class="content-navbar">
         <div class="navbar">
             <div class="img-logo">
-                <img src="img/tachanca-bebe.png" alt="">  
+                <img src="img/tachanca-bebe.png" alt="">
             </div>
-           <div class="text-navbar">
+            <div class="text-navbar">
                 <div class="peronagem"><a href="./agentes.html">AGENTES</a></div>
-                <div class="mapas"><a href="Index.html">HOME</a></div>
-                <div class="sobre"><a href="">SOBRE</a></div>
-            </div>
-            <div class="login">
-               <a href="./cadastrar.html"> <img src="img/usuario.png" alt=""></a>               
+                <div class="mapas"><a href="./Index.html">HOME</a></div>
+                <div class="sobre"><a href="./sobre.html">DEV</a></div>
+                <div id="user_navbar" class="login">
+                    <a href="./cadastrar.html"> <img src="img/usuario.png" alt=""></a>
+                </div>
             </div>
         </div>
-    </div>    
+    </div>
     <div class="titulo">MAPAS</div>
     <div id="content_mapas" class="content-mapas">
         <div id="mapas" class="conteiner-mapas"></div>
-        
+
     </div>
 </body>
+
 </html>
+
+<script>
+    function verificar_user() {
+        var email = sessionStorage.getItem('EMAIL_USUARIO')
+        var apelido = sessionStorage.getItem('apelido')
+
+        if (email == undefined) {
+            user_navbar.innerHTML = ` <a onclick="verificar_user()" href="./cadastrar.html">LOGIN</a>`
+        }
+        else {
+            user_navbar.innerHTML = ` <a onclick="verificar_user()" href="./quiz.html">${apelido}</a>`
+        }
+    }
+</script>

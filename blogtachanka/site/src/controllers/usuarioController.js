@@ -27,11 +27,11 @@ function buscarAgente(req,res)
         );
 }
 
-function getpontos(req,res)
+function pegarponto(req,res)
 {
-    var valorid =  req.params.id
+    var id =req.body.idServer
 
-    usuarioModel.getpontos(valorid)
+    usuarioModel.pegarponto(id)
     .then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
@@ -142,6 +142,7 @@ function pontos(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var id =req.body.idServer
     var pontos = req.body.pontosServer
+    
     // Faça as validações dos valores
     if (id == undefined) {
         res.status(400).send("Seu nome está undefined!");
@@ -181,5 +182,6 @@ module.exports = {
     testar,
     buscarAgente,
     pontos,
-    getpontos
+    pegarponto,
+   
 }

@@ -1,48 +1,49 @@
-@font-face
-{
+@font-face {
     font-family: 'lilita';
     src: url(../fonts/Lilita_One/LilitaOne-Regular.ttf);
 }
-@font-face
-{
-     font-family: 'Good_times';
-     src: url(../fonts/good_times/good\ times\ rg.otf);
+
+@font-face {
+    font-family: 'Good_times';
+    src: url(../fonts/good_times/good\ times\ rg.otf);
 }
 
-body
-{
+body {
 
     height: 100%;
     margin: 0px;
     padding: 0px;
-    background:fixed url(../img/img.jpg);
+    background: fixed url(../img/img.jpg);
 }
-.content-navbar
-{
-    
-   display: flex;
-   position: absolute;
-   width: 100%;
-   justify-content: center;
-   height: 15%;
-   background: linear-gradient(190deg , rgba(24, 23, 46, 0.400),rgba(16, 15, 44, 0.400),rgba(89, 104, 148, 0.400),rgba(43,58,112,0.400));
+
+.content-navbar {
+
+    display: flex;
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+    height: 15%;
+    background: linear-gradient(190deg, rgba(24, 23, 46, 0.400), rgba(16, 15, 44, 0.400), rgba(89, 104, 148, 0.400), rgba(43, 58, 112, 0.400));
 }
-.img-logo
-{
+
+.img-logo {
     cursor: pointer;
 }
-.navbar 
-{
+
+.navbar {
     display: flex;
     margin: 0;
     position: relative;
     height: 100%;
-    width: 95%; 
+    width: 95%;
     justify-content: center;
- 
+
 }
-.text-navbar /* textos da navbar*/
-{
+
+.text-navbar
+
+/* textos da navbar*/
+    {
     display: flex;
     margin: 0;
     align-items: center;
@@ -51,54 +52,55 @@ body
     position: relative;
     display: flex;
     width: 50%;
-   
-    
-    
+
+
+
 }
-.text-navbar a
-{
+
+.text-navbar a {
     font-size: 40px;
     text-decoration: none;
     color: white;
     font-family: 'lilita';
 }
-.navbar .img-logo
-{
-    
-    background-color: rgba(245, 227, 227, 0.020);;
+
+.navbar .img-logo {
+
+    background-color: rgba(245, 227, 227, 0.020);
+    ;
     position: relative;
     right: 15%;
     width: 6%;
     border-radius: 100%;
 }
-.img-logo img
-{
+
+.img-logo img {
     color: rgba(76, 117, 133, 0.103);
     position: absolute;
     width: 100%;
     height: 100%;
 }
-.login
-{
+
+.login {
     height: 90%;
     width: 6%;
     position: relative;
     left: 18%;
-    top: 5%;
+    top: 1.8vw;
     border-radius: 100%;
     padding: 0;
-    
+
 }
-.img_user_logo
-{
+
+.img_user_logo {
     border-radius: 100%;
     background: rgba(76, 117, 133, 0.226);
     position: absolute;
-    
-    
+
+
 }
-.login img
-{
+
+.login img {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -108,25 +110,23 @@ body
 /* final navbar */
 
 
-.conteiner-quiz
-{
+.conteiner-quiz {
     font-family: lilita;
     display: flex;
-     flex-wrap: wrap;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     border-radius: 10%;
-    position:absolute;
-    top: 50%;
+    position: absolute;
+    top: 100%;
     left: 50%;
     width: 95%;
     transform: translate(-50%);
-    
-    box-shadow: 0px 6px 7px 10px rgba(59, 92, 211, 0.904) ;
+
+    box-shadow: 0px 6px 7px 10px rgba(59, 92, 211, 0.904);
 }
 
-.content-pergunta
-{
+.content-pergunta {
     margin: 2%;
     font-size: 3vw;
     display: flex;
@@ -134,68 +134,181 @@ body
     width: 45%;
     height: 70%;
 }
-.content-questao
-{
+
+.content-questao {
     font-size: 3vw;
     display: flex;
     flex-direction: column;
 }
 
-.resposta input
-{
+.resposta input {
     border-style: none;
     width: 5%;
     position: relative;
     bottom: 0.5vw;
     left: 0.5vw;
-    
+
 }
-.btn-respostas
-{
+
+.btn-respostas {
     position: relative;
     left: 25vw;
     bottom: 2vw;
     right: 8vw;
     cursor: pointer;
     font-size: 3vw;
-    background-color:  rgba(114, 224, 218, 0.651);
+    background-color: rgba(114, 224, 218, 0.651);
     border-style: none;
 }
-.results
-{
-   
+
+.results {
+
     font-size: 3vw;
     height: 25vw;
     width: 40vw;
     position: relative;
     bottom: 2vw;
-    left:2vw;
+    left: 2vw;
 }
 
-.btn-respostas:hover
-{
-    background: linear-gradient( rgba(114, 224, 218, 0.651),rgba(43,58,112,0.000));
-   
+.btn-respostas:hover {
+    background: linear-gradient(rgba(114, 224, 218, 0.651), rgba(43, 58, 112, 0.000));
+
 }
 
-.grafico
-{
+.usuario {
+    display: flex;
+    flex-direction: column;
+    font-size: 4vw;
+    align-items: center;
+    font-family: lilita;
     border: solid;
+    position: absolute;
+    height: 40%;
+    width: 40%;
+    left: 5%;
+    top: 30%;
+    justify-content: center;
+}
+
+.dados-usuario {
+    font-size: 4vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 80%;
+
+    font-size: 2vw;
+}
+
+.txt-dados-usuario {
+    font-size: 3vw;
+    position: relative;
+    bottom: 2vw;
+}
+
+.grafico {
+
     position: absolute;
     transform: translate(-50%);
     left: 50%;
-    width: 50%;
-    top: 310vh;
-    height: 60%;
+    width: 60%;
+    top: 170vw;
+    height: 80%;
 }
 
-.titulo
-{
+.titulo {
     font-family: lilita;
     position: absolute;
     left: 50%;
     transform: translate(-50%);
     font-size: 5vw;
     color: white;
-    top: 30%;
+    top: 80%;
+}
+
+.calc-kda {
+    font-family: lilita;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    height: 40%;
+    width: 40%;
+    left: 60%;
+    transform: translate(-30%);
+    top: 30vh;
+}
+
+.inf-kda {
+    font-size: 2vw;
+    margin: 2%;
+    background: rgba(76, 117, 133, 0.226);
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border: solid;
+    height: 30%;
+    width: 90%;
+
+}
+
+.inf-kda input {
+    position: relative;
+    font-size: 80%;
+    left: 2%;
+    background: rgba(230, 238, 238, 0.226);
+    height: 3vw;
+    width: 10%;
+    border-style: none;
+}
+
+.result {
+    border: solid;
+    position: relative;
+    right: 25%;
+    width: 40%;
+    height: 60%;
+    top: 10%;
+    font-size: 2vw;
+}
+
+.calcular-kda {
+    background: rgba(230, 238, 238, 0.226);
+    font-family: lilita;
+    font-size: 3vw;
+    border-radius: 20%;
+    color: white;
+    position: relative;
+    padding: 0;
+    height: 15vh;
+    left: 20%;
+}
+
+.calculos {
+    font-family: lilita;
+    position: absolute;
+    height: 40%;
+    width: 50%;
+    top: 175vw;
+    left: 70%;
+    transform: translate(-40%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 3vw;
+}
+
+.calculos div {
+    display: flex;
+    flex-direction: column;
+}
+.resposta input
+{
+    width: 10%;
+    font-size: 1.7vw;
 }

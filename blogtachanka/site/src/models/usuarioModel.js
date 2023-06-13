@@ -1,5 +1,11 @@
 var database = require("../database/config")
 
+function getpontos(id)
+{
+    var instrucao = `select fkUsuario, sum(pontos_quiz) from dados_usuario join usuario 
+	on fkUsuario = dados_usuario.id
+    where fkUsuario = ${id} ;`
+}
 function listar() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucao = `
@@ -36,10 +42,19 @@ function cadastrar(nome, apelido, email, senha) {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+function pontos (id,pontos)
+{
+    console.log("estou no models pontos")
+
+    var instrucao = 
+    `INSERT INTO dados_usuario (id,pontos_quiz,fkusuario) VALUE (null,${pontos},${id});`
+    return database.executar(instrucao)
+}
 
 module.exports = {
     entrar,
     cadastrar,
     listar,
-    buscarAgente
+    buscarAgente,
+    pontos
 };

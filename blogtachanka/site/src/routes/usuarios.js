@@ -18,9 +18,15 @@ router.get("/buscar/:nome",function (req,res){
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
+router.post("/pontos",function(req,res){
+    usuarioController.pontos(req,res)
+})
 
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
+
+router.get("/getpontos:id",function(req,res)
+{ usuarioController.getpontos(req,res);})
 
 module.exports = router;

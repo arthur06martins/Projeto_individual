@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/styleQuiz.css">
-    <script src="./scripts/dash_quiz.js"></script>
+    
      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Document</title>
 </head>
-<body onload="plotarDados()">
+<body>
     <div class="content-navbar">
         <div class="navbar">
             
@@ -100,11 +100,12 @@
         </div>
 
         <div id="results" class="results"></div>
-        <div class="btn-respostas" onclick="respostas()">Enviar respostas</div>
+        <div id="btn_respostas" class='btn-respostas' onclick="respostas()">Enviar respostas</div>
+        <div style="display: none;" id="resetar" class='btn-respostas' onclick="resetar()">resetar</div>
     </div>
-    <section>
+    
         <div class="grafico">
-            <canvas id="ranking_quiz"></canvas>
+            <canvas id='ranking_quiz'></canvas>
         </div>
     </section>
 </body>
@@ -112,11 +113,34 @@
 
 <script>
 
-    var pontos = 0
-    function respostas()
-{
+var ctx = document.getElementById('ranking_quiz')
 
-    
+ new Chart(ctx,{
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [1,6,9,87],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+    var pontos = 0
+function respostas()
+{
+    btn_respostas.style.display = "none"
+    resetar.style.display = "flex"
+    var id= sessionStorage.getItem('id')
+    results.innerHTML = ""
 
      var r1 = (resposta1.value).toUpperCase()
      var r2 = (resposta2.value).toUpperCase()
@@ -129,57 +153,118 @@
 
     
 
-       if(r1 == "A")
+       if(r1 == "C")
        {
-           nota = 2
+           pontos += 2
        }
        else{
         results.innerHTML += `1-Você errou<br>`
        }
        if(r2 == "C")
        {
-           nota = 3
+           pontos += 3
        }
        else{
         results.innerHTML += `2-Você errou<br>`
        }
        if(r3 == "D")
        {
-           nota = 2
+        pontos += 2
        }
        else{
         results.innerHTML += `3-Você errou<br>`
        }
-
        if(r4 == "A")
        {
-           nota = 2
+           pontos += 2
        }
        else{
         results.innerHTML += `4-Você errou<br>`
        }
        if(r5 == "C")
        {
-           nota = 2
+           pontos +=2
        }
        else{
         results.innerHTML += `5-Você errou<br>`
        }
        if(r6 == "D")
        {
-           nota = 3
+          pontos += 3
        }
        else{
         results.innerHTML += `6-Você errou<br>`
        }
-
        if(r7 == "D")
        {
-           nota = 2
+        pontos +=2
        }
        else{
         results.innerHTML += `7-Você errou<br>`
        }
-        fetch("/usuario/")                                                                                                
+       
+        fetch("/usuarios/pontos",{
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                idServer:id,
+                pontosServer:pontos
+
+            })
+        }).then(function(resposta){
+            console.log("resposta",resposta)
+            if(resposta.ok){
+                console.log("logado com sucesso")   
+            }
+            else{
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        })       
+        return false;  
+        
+
+        fetch(`/usuario/getpontos:${id}`,
+        {
+            cache:"no-store"
+        
+
+        }).then(function(resposta){
+            if(resposta.ok){
+                resposta.json().then(function(response){
+                    console.log(response)
+
+                })
+            }
+        })
+
+        var ctx = document.getElementById('ranking_quiz')
+
+ var tachanka = new Chart(ctx,{
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  for(var i = 0; i < resposta.length; i++)
+  {
+        var registro = resposta[i]
+
+  }
+
 }
 </script>

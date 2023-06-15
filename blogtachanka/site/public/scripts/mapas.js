@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded",function(){
     
     for(var i = 0;i <img_mapas.length; i++)
     {
-        var atribuir = img_mapas[i]
+        var maps = img_mapas[i]
         var nome = nomes[i] 
 
-        mapas.innerHTML += `<div class= "cards_mapas"><div class="img_mapas" id= "mapa${i}"> <img src="${[atribuir]}" alt=""><div class = "nome_mapa">${nome.toUpperCase()}</div></div>`
+        mapas.innerHTML += `<div class= "cards_mapas"><div class="img_mapas" id= "mapa${i}"> <img src="${[maps]}" alt=""><div class = "nome_mapa">${nome.toUpperCase()}</div></div>`
 
     }
 })

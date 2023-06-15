@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/tachanca-bebe.png">
     <link rel="stylesheet" href="./style/styleQuiz.css">
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Document</title>
 </head>
@@ -15,7 +15,7 @@
         <div class="navbar">
 
             <div class="img-logo" onclick="clicar()">
-                <img src="./img/tachanca-bebe.png" alt="">
+                <a href="Index.html"><img src="img/tachanca-bebe.png" alt=""></a>
             </div>
             <div class="text-navbar">
                 <div class="pginicial"><a href="./Index.html">HOME</a></div>
@@ -31,23 +31,26 @@
     </div>
 
     <div class="usuario">
-         USUARIO
+        USUARIO
         <div id="dados_usuario" class="dados-usuario">
         </div>
     </div>
+    <div class="txt_kda">CALCULE O SEU KDA AQUI</div>
     <div class="calc-kda">
-        <div class="inf-kda">Infromer suas kills:<input type="number" name="" id="inp_kill"></div>
+        <div class="inf-kda">Informer suas kills:<input type="number" name="" id="inp_kill"></div>
         <div class="inf-kda">Informe suas mortes:<input type="number" name="" id="inp_mortes"></div>
-        <div class="inf-kda">Informe suas assistencia:<input type="number" name="" id="inp_assistencia"></div>
+        <div class="inf-kda">Informe suas assistencias:<input type="number" name="" id="inp_assistencia"></div>
 
-        <div class="result" ><div>Resultado:</div>
-        <div class="receber-kda" id="receber_kda"></div></div>
-        <button class="calcular-kda" onclick="calcular_kda()">calcular</button>
+        <div class="result">
+            <div>Resultado:</div>
+            <div class="receber-kda" id="receber_kda"></div>
+        </div>
+        <div class="calcular-kda" onclick="calcular_kda()">calcular</div>
     </div>
     <div class="titulo">QUIZ DO TACHANKA</div>
     <div class="conteiner-quiz">
         <div class="content-pergunta">
-            <div class="titulo-questao">1-Qual agente não é atacante?</div>
+            <div class="titulo-questao">1-Qual agente não é um atacante?</div>
             <div class="content-questao">
                 <span class="questao">(A) Sldge</span>
                 <span class="questao">(B) Capitão</span>
@@ -114,7 +117,7 @@
                 <span class="questao">(C) Diamante</span>
                 <span class="questao">(D) Campeão</span>
             </div>
-            
+
             <div class="resposta"><span>informe a sua resposta:</span><input maxlength="1" id="resposta7"></div>
         </div>
 
@@ -122,26 +125,33 @@
         <div id="btn_respostas" class='btn-respostas' onclick="respostas()">Enviar respostas</div>
         <div style="display: none;" id="resetar" class='btn-respostas' onclick="limpar()">resetar</div>
     </div>
-
+    <div class="pontos"> VEJA SEUS PONTOS</div>
     <div class="grafico">
         <canvas id='ranking_quiz' style="width:200px; height: 300px;"></canvas>
-        
+
     </div>
     <div id="div_calculos" class="calculos"></div>
-    
-</body>
 
+
+    <div class="a">a</div>
+
+</body>
+<footer>
+    <footer class="footer">
+        <p>&copy; 2023 UBSOFT MONTREAL. Todos os direitos reservados.</p>
+    </footer>
+</footer>
 </html>
 
 <script>
-    var jones = []
+    var salvar_pontos = []
     var partidas = 0
     var pontos = 0
     var qtdpontos = 0
 
     dados_usuario.innerHTML = `            <div class="txt-dados-usuario">Apelido:${sessionStorage.getItem('apelido')} </div>
             <div class="txt-dados-usuario">E-mail:${sessionStorage.getItem('EMAIL_USUARIO')}</div>`
-    
+
 
     function respostas() {
         btn_respostas.style.display = "none"
@@ -216,7 +226,7 @@
             console.log("resposta", resposta)
             if (resposta.ok) {
                 console.log("logado com sucesso")
-                
+
             }
             else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -233,70 +243,68 @@
     function plotar() {
         var id = sessionStorage.getItem('id')
         fetch("/usuarios/pegarponto",
-        {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                idServer: id,
+            {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    idServer: id,
 
 
+                })
+
+
+            }).then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(function (response) {
+
+                        for (var i = 0; i < response.length; i++) {
+                            var registro = response[i]
+                            salvar_pontos.push(registro.pontos_quiz)
+                            qtdpontos += salvar_pontos[i]
+                            partidas += 1
+
+                            localStorage.setItem(`usuario${id}`, JSON.parse(registro.pontos_quiz))
+
+                        }
+                        // console.log(registro, "aqui é registro")
+                        // console.log(jones, "aqui é jones")
+
+
+
+                        var ctx = document.getElementById('ranking_quiz')
+
+                        var tachanka = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['QUANTIDADE DE PONTOS'],
+                                datasets: [{
+                                    label: 'PONTOS DE TODAS AS SUAS PARTIDAS',
+                                    data: [qtdpontos],
+                                    borderWidth: 5,
+                                    borderColor: ' rgba(114, 224, 218, 0.651)',
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+
+                        });
+                        div_calculos.innerHTML = `<div><span>Pontos desta rodada: ${pontos}</span>
+            Quantidade De vezes jogadas: ${partidas}</div><div>Pontos totais: ${qtdpontos}</div>`
+                        pontos = 0
+
+                    })
+                }
             })
 
 
-        }).then(function (resposta) {
-            if (resposta.ok) {
-                resposta.json().then(function (response) {
-
-                    for (var i = 0; i < response.length; i++) {
-                        var registro = response[i]
-                        jones.push(registro.pontos_quiz)
-                        qtdpontos += jones[i]
-                        partidas += 1
-
-                        localStorage.setItem(`usuario${id}`, JSON.parse(registro.pontos_quiz))
-
-                    }
-                    // console.log(registro, "aqui é registro")
-                    // console.log(jones, "aqui é jones")
-
-
-
-                    var ctx = document.getElementById('ranking_quiz')
-
-                    var tachanka = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: ['QUANTIDADE DE PONTOS'],
-                            datasets: [{
-                                label: 'PONTOS DE TODAS AS SUAS PARTIDAS',
-                                data: [qtdpontos],
-                                borderWidth: 5,
-                                borderColor: ' rgba(114, 224, 218, 0.651)',
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                y: {
-                                    beginAtZero: true
-                                }
-                            }
-                        }
-                        
-                    });
-                    div_calculos.innerHTML = `<div><span>Pontos desta rodada: ${pontos}</span>
-            Quantidade De vezes jogadas: ${partidas}</div><div>Pontos totais: ${qtdpontos}</div>`
-            pontos = 0
-
-                })
-            }
-        })
-
-        
 
 
     }
-
-
     function sair() {
         sessionStorage.clear('EMAIL_USUARIO')
     }
@@ -307,12 +315,11 @@
 </script>
 
 <script>
-    function calcular_kda()
-    {
+    function calcular_kda() {
         var assistencia = Number(inp_assistencia.value)
         var mortes = Number(inp_mortes.value)
-        var kill = Number( inp_kill.value)
-        var calculo = parseFloat((kill+assistencia)/mortes).toFixed(2)
+        var kill = Number(inp_kill.value)
+        var calculo = parseFloat((kill + assistencia) / mortes).toFixed(2)
         receber_kda.innerHTML = `seu KDA é ${calculo}`
 
     }

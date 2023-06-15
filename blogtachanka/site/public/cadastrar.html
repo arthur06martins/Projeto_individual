@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login/Cadastro</title>
+    <link rel="icon" href="./img/tachanca-bebe.png">
     <script src="./scripts/cadastro_dataviz_api.js"></script>
     <link rel="stylesheet" href="./style/stylecadastrar.css">
 </head>
+
 <body>
     <header class="nav">
         <div class="navItems"> <a href="./Index.html">Pagina Inicial</a>
@@ -17,8 +20,8 @@
         <div class="form-container sign-up-container">
             <form action="#" method="">
                 <h1>Efetue seu cadastro!</h1>
-           
-                
+
+
                 <div class="infield">
                     <input id="inp_nome" type="text" placeholder="Nome" />
                     <label></label>
@@ -28,7 +31,7 @@
                     <label></label>
                 </div>
                 <div class="infield">
-                    <input id="inp_email" type="email" placeholder="Email" name="email"/>
+                    <input id="inp_email" type="email" placeholder="Email" name="email" />
                     <label></label>
                 </div>
                 <div class="infield">
@@ -40,16 +43,16 @@
         </div>
         <div class="form-container sign-in-container">
             <form action="#">
-                <h1>Login</h1>  
+                <h1>Login</h1>
                 <div class="infield">
-                    <input id="inp_login_email" type="email" placeholder="Email" name="email"/>
+                    <input id="inp_login_email" type="email" placeholder="Email" name="email" />
                     <label></label>
                 </div>
                 <div class="infield">
                     <input id="inp_login_senha" type="password" placeholder="Senha" />
                     <label></label>
                 </div>
-                
+
                 <button onclick="entrar()">Entrar</button>
             </form>
         </div>
@@ -75,122 +78,124 @@
         const overlayCon = document.getElementById('overlayCon')
         const overlayBtn = document.getElementById('overlayBtn')
 
-        overlayBtn.addEventListener('click',()=> {
+        overlayBtn.addEventListener('click', () => {
             container.classList.toggle('right-panel-active');
             overlayBtn.classList.remove('btnScaled');
-            window.requestAnimationFrame(()=>{
+            window.requestAnimationFrame(() => {
                 overlayBtn.classList.add('btnScaled');
             })
         });
-        function cadastrar() {  
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nome  =   inp_nome.value;
-    var apelido = inp_apelido.value;
-    var email = inp_email.value;
-    var senha = inp_senha.value;
+        function cadastrar() {
+            //Recupere o valor da nova input pelo nome do id
+            // Agora vá para o método fetch logo abaixo
+            var nome = inp_nome.value;
+            var apelido = inp_apelido.value;
+            var email = inp_email.value;
+            var senha = inp_senha.value;
 
-    if (nome == "" || apelido == "" || email == "" || senha== "") {
-       
-        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            if (nome == "" || apelido == "" || email == "" || senha == "") {
 
-       
-        return false;
-    }
-   
+                alert("favor preencher todos os campos")
 
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            // crie um atributo que recebe o valor recuperado aqui
-            // Agora vá para o arquivo routes/usuario.js
-            nomeServer: nome,
-            emailServer: email,
-            senhaServer: senha,
-            apelidoServer: apelido
-        })
-    }).then(function (resposta) {
 
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-            
-        } else {
-            throw ("Houve um erro ao tentar realizar o cadastro!");
-        }
-    }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        
-    });
-
-    return false;
-}
+                return false;
+            }
 
 
 
-function entrar() {
- 
-    
-    var emailVar = inp_login_email.value;
-    var senhaVar = inp_login_senha.value;
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nome,
+                    emailServer: email,
+                    senhaServer: senha,
+                    apelidoServer: apelido
+                })
+            }).then(function (resposta) {
 
-    if (emailVar == "" || senhaVar == "") {
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-     
-        return false;
-    }
-    
-    console.log("FORM LOGIN: ", emailVar);
-    console.log("FORM SENHA: ", senhaVar);
-    fetch("/usuarios/autenticar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            emailServer: emailVar,
-            senhaServer: senhaVar
-        })
-    }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
-        if (resposta.ok) {
-            console.log(resposta);
-            resposta.json().then(json => {
-               
-                console.log(json);
-                console.log(JSON.stringify(json));
-                localStorage.setItem("logado", JSON.stringify("1"))
-                sessionStorage.apelido = json.apelido
-                sessionStorage.id = json.id;
-                sessionStorage.EMAIL_USUARIO = json.email;
-                sessionStorage.NOME_USUARIO = json.nome;
-                
-                 window.location = "./quiz.html";
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
 
             });
-        } else {
-            console.log("Houve um erro ao tentar realizar o login!");
-            resposta.text().then(texto => {
-                console.error(texto);
-            
-            });
+
+            return false;
         }
-    }).catch(function (erro) {
-        console.log(erro);
-    })
-    return false;
-}
+
+
+
+        function entrar() {
+
+
+            var emailVar = inp_login_email.value;
+            var senhaVar = inp_login_senha.value;
+
+            if (emailVar == "" || senhaVar == "") {
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+                return false;
+            }
+
+            console.log("FORM LOGIN: ", emailVar);
+            console.log("FORM SENHA: ", senhaVar);
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+                if (resposta.ok) {
+                    console.log(resposta);
+                    resposta.json().then(json => {
+
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+                        localStorage.setItem("logado", JSON.stringify("1"))
+                        sessionStorage.apelido = json.apelido
+                        sessionStorage.id = json.id;
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+
+                        window.location = "./quiz.html";
+
+                    });
+                } else {
+                    console.log("Houve um erro ao tentar realizar o login!");
+                    resposta.text().then(texto => {
+                        console.error(texto);
+
+                    });
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+            return false;
+        }
 
 
 
 
-</script> 
-    
+    </script>
+
 
 </body>
+
 </html>

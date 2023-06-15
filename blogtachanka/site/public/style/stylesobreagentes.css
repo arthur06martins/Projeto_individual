@@ -83,8 +83,8 @@ body
     height: 90%;
     width: 6%;
     position: relative;
-    left: 18%;
-    top: 5%;
+    top: 20%;
+    left: 7vw;
     border-radius: 100%;
     padding: 0;
     
@@ -293,15 +293,16 @@ dados agente */
 .conteiner-data
 {
     display: flex;
+    text-align: center;
     align-items: center;
     font-family: lilita;
     flex-direction: column;
     position:absolute;
-    transform: translate(-5%);
+    transform: translate(-10%);
     left: 20%;
     top: 45vw;
     height: 10.5vw;
-    width: 70%;
+    width: 80%;
     background:  hsla(0,0%,100%,.6) ;
 }
 .titulo-data .linha{
@@ -405,6 +406,7 @@ dados agente */
 {
     font-family: lilita;
     font-size: 2vw;
+    text-align: center;
 }
 .titulo_txt
 {
@@ -415,3 +417,22 @@ dados agente */
     font-family: lilita;
     font-size: 2.6vw;
 }
+
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+  .a{
+    position: absolute;
+    top: 120vw;
+  }
+
+  .footer p {
+    margin: 0;
+    font-size: 14px;
+  }

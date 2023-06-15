@@ -18,7 +18,6 @@ primary key idusuario(id))
 create table dados_usuario(
 id int auto_increment,
 pontos_quiz int,
-vezes_quiz int,
 fkUsuario int not null,
 constraint fkUsuario foreign key (fkUsuario) references	blogtachanka.usuario(id),
 constraint pk_dados_usuario primary key  (id, fkUsuario) );

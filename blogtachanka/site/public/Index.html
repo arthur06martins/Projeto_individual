@@ -1,77 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/tachanca-bebe.png">
     <link rel="stylesheet" href="./style/stylePgInicial.css">
 
     <title>Document</title>
 </head>
+
 <body onload="verificar_user()">
     <div class="content-navbar">
         <div class="navbar">
             <div class="img-logo">
-                <img src="img/tachanca-bebe.png" alt="">  
+                <img src="img/tachanca-bebe.png" alt="">
             </div>
-           <div class="text-navbar">
+            <div class="text-navbar">
                 <div class="peronagem"><a href="./agentes.html">AGENTES</a></div>
                 <div class="mapas"><a href="mapas.html">MAPAS</a></div>
-                <div class="sobre"><a href="./sobre.html">DEV</a></div>
                 <div id="user_navbar" class="login">
-                    <a onclick="verificar_user()" href="./cadastrar.html"> <img src="img/usuario.png" alt=""></a>               
-                 </div>
+                    <a onclick="verificar_user()" href="./cadastrar.html"> <img src="img/usuario.png" alt=""></a>
+                </div>
             </div>
 
         </div>
-        
-    </div>           
-    <div class="titulo-artigo-1"><h1> Tom Clancy's Rainbow Six Siege</h1></div>
+
+    </div>
+    <div class="titulo-artigo-1">
+        <h1> Tom Clancy's Rainbow Six Siege</h1>
+    </div>
     <div class="content-artigo-1">
         <div class="artigo-1">
             <article>
-                <p> Tom Clancy's Rainbow Six Siege é um jogo de FPS(frams for secunds) em  primeira pessoa tático, em que os jogadores assumem o papel de um dos membros da equipe Rainbow, uma unidade contra-terrorista. Os membros têm diferentes nacionalidades, habilidades e equipamentos.</p>
+                <p> Tom Clancy's Rainbow Six Siege é um jogo de FPS(frams for secunds) em primeira pessoa tático, em que
+                    os jogadores assumem o papel de um dos membros da equipe Rainbow, uma unidade contra-terrorista. Os
+                    membros têm diferentes nacionalidades, habilidades e equipamentos.</p>
             </article>
-            
+
         </div>
- 
+
     </div>
     <div class="img-artigo1"><img src="./img/artigo1.jpg" alt=""></div>
-    
+
     <div class="content-artigo-2">
-        <div class="titulo-artigo-2"><h1>   Blast R6 Copenhagem </h1></div>
+        <div class="titulo-artigo-2">
+            <h1> Blast R6 Copenhagem </h1>
+        </div>
         <div class="artigo-2">
             <article>
-                <p>A w7m esports é a campeã do BLAST R6 Major Copenhagen 2023, campeonato internacional de Rainbow Six realizado em Copenhague, na Dinamarca. Em uma final brasileira, disputada neste domingo, a w7m derrotou a Team Liquid por 3 a 0 e conquistou o título sem perder uma série sequer durante o torneio. </p>
+                <p>A w7m esports é a campeã do BLAST R6 Major Copenhagen 2023, campeonato internacional de Rainbow Six
+                    realizado em Copenhague, na Dinamarca. Em uma final brasileira, disputada neste domingo, a w7m
+                    derrotou a Team Liquid por 3 a 0 e conquistou o título sem perder uma série sequer durante o
+                    torneio. </p>
             </article>
         </div>
     </div>
     <div class="img-artigo2"><img src="./img/mejor.avif" alt=""></div>
+    <div class="conteiner-desenvolvedor">
+        <div class="desenvolvedor">
+            <div class="titulo-desenvolvedor">DESENVOLVEDOR</div>
+            <div class="img-desenvolvedor">
+                <img src="./img/desenvolvedor.jpeg" alt="">
+            </div>
+            <div class="descricao">
+                <p>Olá! Me chamo Arthur, atualmente estou estudando análise e desenvolvimento de sistemas. Sou um amante da tecnologia, estou nesse mundo desde meus 8 anos, sempre procurando melhorar e me empenhar mais. Criei esse blog com o objetivo de mostrar para os usuários um pedacinho do mundo de rainbow six siege, espero que curta a página!</p>
+            </div>
+        </div>
+    </div>
     <p class="a">a</p>
-    
+
 </body>
 <footer>
     <footer class="footer">
         <p>&copy; 2023 UBSOFT MONTREAL. Todos os direitos reservados.</p>
-      </footer>
+    </footer>
 </footer>
 
 
 
 </html>
 <script>
-    function verificar_user()
-    {
+    function verificar_user() {
         var email = sessionStorage.getItem('EMAIL_USUARIO')
         var apelido = sessionStorage.getItem('apelido')
-        
-        if(email == undefined)
-        {
-            user_navbar.innerHTML =  ` <a onclick="verificar_user()" href="./cadastrar.html">LOGIN</a>`
+
+        if (email == undefined) {
+            user_navbar.innerHTML = ` <a onclick="verificar_user()" href="./cadastrar.html">LOGIN</a>`
         }
-        else
-        {
-            user_navbar.innerHTML =  ` <a onclick="verificar_user()" href="./quiz.html">${apelido}</a>`
+        else {
+            user_navbar.innerHTML = ` <a onclick="verificar_user()" href="./quiz.html">${apelido}</a>`
         }
     }
 </script>

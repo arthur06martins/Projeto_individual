@@ -1,4 +1,4 @@
-// const { get } = require("../../src/routes/sobreagentes")
+
 
 var nomes = ['ace','alibi','amaru','aruni','ash',"azumi",'blackbird','bandit','blitz','castle','brava','caveira','buck','clash','capitão','doc','dokkaebi','echo','finka','ela','flores','frost','fuze','goyo','glaz','jager','gridlock','kaid','grim','kapkan','hibana','lesion','iana','maestro','iq','melusi','jackal','mira','kali','mozzie','lion','mute','maverick','oryx','montagne','pulse','nomad','rook','nook','smoke','osa','solis','sens','tachanka','sledge','thorn','thatcher','thunderbird','thermite','valkyrie','twitch','vigil','ying','wamai','zero','warden','zofia']
 
